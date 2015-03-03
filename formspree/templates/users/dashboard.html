@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+{% block base %}
+  <div class="row section" id="header">
+    <div class="container center">
+      <h1>Hello {{ current_user.email }}</h1>
+    </div>
+  </div>
+
+  <div class="container block navtabs">
+    <div class="col-1-1">
+      <ul>
+        <li><a href="/dashboard">Your Forms</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container block">
+      {% block section %}
+      {% endblock %}
+    </div>
+  </div>
+
+{% endblock base %}

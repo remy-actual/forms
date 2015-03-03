@@ -1,0 +1,27 @@
+{% extends 'users/dashboard.html' %}
+
+{% block section %}
+
+  <div class="col-1-1">
+    <h2>Your Forms</h2>
+
+    {% include "forms/create.html" %}
+
+    {% with %}
+      {% set forms = current_user.forms.order_by('-id').all() %}
+
+      <table class="forms">
+        <tbody>
+        {% for form in forms %}
+          {% with %}
+            {% set form_loop = loop %}
+            {% include "forms/list_item.html" %}
+          {% endwith %}
+        {% endfor %}
+        </tbody>
+      </table>
+
+    {% endwith %}
+  </div>
+
+{% endblock %}
